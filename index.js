@@ -8,25 +8,21 @@ let ul = document.querySelector('ul');
 newArr = []
 
 button.addEventListener('click', myFunction);
-
-// }
-// input.addEventListener('keydown', function(event) {
-//     if (event.key === 'Enter') {
-//       myFunction();
-//       renderTasks();
-//       input.value = "";
-//     }
-// });
+// pushes the user input value into newArr then calls renderTasks()
 function myFunction(){
     newArr.push(input.value);
     console.log(newArr)
     renderTasks();
 }
+// function that creates a new list item 
 function renderTasks(){
+    // clear it so it only adds one item each time you click
     ul.innerHTML = "";
+    // create new list item with the input on newArr
     newArr.forEach((listItem) => {
     let newLi = document.createElement('li');
     let newButton = document.createElement('button');
+    // add button for deleting the items
     newButton.addEventListener('click', deleteItem);
     newButton.textContent = "delete";
     newLi.textContent = listItem;
@@ -36,6 +32,7 @@ function renderTasks(){
 }
 function deleteItem(){
     let itemText = this.textContent;
+    // if index # is 1 less than index of the newly added item on the list then delete
     let index = newArr.indexOf(itemText);
     if (index > -1) {
         newArr.splice(index, 1);
