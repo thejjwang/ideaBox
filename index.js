@@ -22,12 +22,17 @@ function renderTasks(){
     newArr.forEach((listItem) => {
     let newLi = document.createElement('li');
     let newButton = document.createElement('button');
+    newButton.setAttribute("class", "deleteBtn");
+    newLi.setAttribute("class", "li");
+    let p = document.createElement('p');
+    newLi.appendChild(p);
+    // let spacing = document.querySelector('li')
     // add button for deleting the items
     newButton.addEventListener('click', deleteItem);
     newButton.textContent = "delete";
-    newLi.textContent = listItem;
+    p.textContent = listItem;
     newLi.addEventListener('click', deleteItem);
-    ul.appendChild(newLi);
+    ul.appendChild(newLi);  
     newLi.appendChild(newButton);}); 
 }
 function deleteItem(){
